@@ -3,6 +3,8 @@
 #include "lib.h"
 using namespace std;
 
+// Añadiendo comentarios 
+
 #ifndef _CARGA_
 #define _CARGA_
 
