@@ -1,30 +1,40 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
 #include "lib.h"
 using namespace std;
 
-// Añadiendo comentarios 
-
 #ifndef _CARGA_
 #define _CARGA_
-
 int cargarDatos(string nombre_archivo, Notas notas[]) {
- notas[0].matricula="01";
- notas[0].materia="algebra";
- notas[0].matricula=75;
+    ifstream archivo(nombre_archivo);
+    string linea;
 
- notas[0].matricula="01";
- notas[0].materia="RSU";
- notas[0].matricula=85;
+    // Leer cada línea del archivo
+    int i = 0;
+    while (getline(archivo, linea)) {
+        stringstream stream(linea);
+        string celda;
+        vector<string> fila;
+        Notas tmp;
 
- notas[0].matricula="01";
- notas[0].materia="Programacion";
- notas[0].matricula=95;
- 
- cout<<"Se cargaron los registro de notas"<<endl;
- return 0;	
+        // Separar cada línea por comas
+        while (getline(stream, celda, ',')) {
+            fila.push_back(celda);
+        }
+
+        tmp.matricula = fila[0];
+        tmp.materia = fila[1];
+        tmp.cal = stof(fila[2]);
+
+        notas[i]=tmp;
+
+        i++;
+    }
+    return 0;
+
 }
-
-
-
 #endif
