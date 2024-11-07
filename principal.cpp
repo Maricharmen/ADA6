@@ -4,6 +4,7 @@ using namespace std;
 
 
 int main() {
+  
  Notas lista[9];
  
  cout<<"Lista de notas generada"<<endl;
