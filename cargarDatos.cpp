@@ -34,6 +34,7 @@ int cargarDatos(string nombre_archivo, Notas notas[]) {
 
         i++;
     }
+    
     return 0;
 
 }
