@@ -10,12 +10,12 @@ struct Notas {
   float cal;	
 };
 
-//int MAXN=9;
+int alumnos = 9;
+float promAlgebra = 0, promRSU = 0, promProg = 0, promGral = 0; 
 
 int cargarDatos(string nombre_archivo, Notas notas[]); 
 float obtenerPromedioAlumno(string matricula, Notas notas[]); 
-void calcularEstadisticas(Notas notas[], float &promAlgebra, float &promRSU, 
-float &promProg, float &promGral); 
-void listarNotas(Notas notas[]); 
+int calcularEstadisticas(Notas notas[], float &promAlgebra, float &promRSU, float &promProg, float &promGral); 
+int listarNotas(Notas notas[]); 
 
 #endif

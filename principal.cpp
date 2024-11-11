@@ -7,7 +7,7 @@ using namespace std;
 int main() {
   
  Notas lista[9];
- 
+
  int opcion;
  string linea;
  ifstream file("note.csv");
@@ -39,24 +39,28 @@ int main() {
     while(getline(file, linea)){
       size_t pos = linea.find(',');
       string matricula = linea.substr(0, pos); 
-      if ( obtenerPromedioAlumno(matricula, lista) == 0)
+      if ( obtenerPromedioAlumno(matricula, lista) == 0){
           cout<<"Promedio obtenido \n";
-      else
+          cout<<matricula<<" "<<obtenerPromedioAlumno<<"\n";
+      }else
         cout <<"Error de carga en archivo \n";
     }
     
   case 3:
 
-    
-    if ( calcularEstadisticas("notas.txt", lista ) == 0)
-        cout<<"Notas cargadas"<<endl;
-    else
+    if ( calcularEstadisticas( lista, promAlgebra, promRSU, promProg, promGral)){
+        cout<<"Estadisticas cargadas"<<endl;
+        cout<<"Algebra: "<<promAlgebra<<"\n";
+        cout<<"RSU: "<<promRSU<<"\n";
+        cout<<"Programacion: "<<promProg<<"\n";
+        cout<<"General: "<<promGral<<"\n";
+    }else
       cout <<"Error de carga en archivo"<<endl;
     break;
 
   case 4:
-    if ( listarNotas("notas.txt", lista ) == 0)
-        cout<<"Notas cargadas"<<endl;
+    if ( listarNotas(lista) == 0 )
+        cout<<"Notas listadas"<<endl;
     else
       cout <<"Error de carga en archivo"<<endl;
     break;
